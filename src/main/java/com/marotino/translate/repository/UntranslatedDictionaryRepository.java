@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UntranslatedDictionaryRepository extends CrudRepository<UntranslatedEntry, Long> {
 
-    void removeByValue(String value);
+    void removeByWord(String value);
     Page<UntranslatedEntry> findAll(Pageable pageable);
 }

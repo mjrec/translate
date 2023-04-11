@@ -53,7 +53,7 @@ public class TranslationController {
      * @param size the size of each page.
      * @return a paginated list of translated entries.
      */
-    @GetMapping("/translated")
+    @GetMapping("/translated-list")
     public ResponseEntity<Page<TranslatedEntry>> getTranslatedEntries(@RequestParam(defaultValue = "0") int page,
                                                                       @RequestParam(defaultValue = "10") int size) {
         Page<TranslatedEntry> entries = translationServiceImpl.getTranslatedWords(page, size);
@@ -67,7 +67,7 @@ public class TranslationController {
      * @param size the size of each page.
      * @return a paginated list of untranslated entries.
      */
-    @GetMapping("/untranslated")
+    @GetMapping("/untranslated-list")
     public ResponseEntity<Page<UntranslatedEntry>> getUntranslatedEntries(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size) {
         Page<UntranslatedEntry> entries = translationServiceImpl.getUntranslatedWords(page, size);
         return ResponseEntity.ok(entries);

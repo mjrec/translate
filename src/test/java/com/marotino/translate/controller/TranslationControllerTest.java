@@ -24,7 +24,7 @@ public class TranslationControllerTest {
     private TranslationServiceImpl translationService;
 
     @Test
-    public void getTranslation_returnsOkResponse() {
+    public void testGetTranslationWithOkResponse() {
         String word = "hello";
         String translation = "cześć";
         when(translationService.translate(anyString())).thenReturn(translation);
@@ -38,7 +38,7 @@ public class TranslationControllerTest {
     }
 
     @Test
-    public void addTranslatedEntry_returnsOkResponse() {
+    public void testAddTranslatedEntryWithOkResponse() {
         TranslatedEntry entry = new TranslatedEntry("kot", "cat");
         when(translationService.addTranslatedWord(any(TranslatedEntry.class))).thenReturn(entry);
 

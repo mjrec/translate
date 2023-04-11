@@ -20,8 +20,8 @@ public class TranslationServiceImpl implements TranslationService {
     
     @Override
     public TranslatedEntry addTranslatedWord(TranslatedEntry word) {
-        untranslatedDictionaryRepository.removeByValue(word.getEnglishWord());
-        untranslatedDictionaryRepository.removeByValue(word.getPolishWord());
+        untranslatedDictionaryRepository.removeByWord(word.getEnglishWord());
+        untranslatedDictionaryRepository.removeByWord(word.getPolishWord());
         return translatedEntryRepository.save(word);
     }
 
