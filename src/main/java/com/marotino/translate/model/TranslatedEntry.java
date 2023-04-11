@@ -1,14 +1,23 @@
 package com.marotino.translate.model;
 
-public class DictionaryEntry {
+import jakarta.persistence.Entity;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class TranslatedEntry {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String polishWord;
     private String englishWord;
 
-    public DictionaryEntry() {}
+    public TranslatedEntry() {}
 
-    public DictionaryEntry(String polishWord, String englishWord) {
+    public TranslatedEntry(String polishWord, String englishWord) {
         this.polishWord = polishWord;
         this.englishWord = englishWord;
     }
