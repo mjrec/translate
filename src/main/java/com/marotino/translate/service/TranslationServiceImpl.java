@@ -5,6 +5,7 @@ import com.marotino.translate.model.TranslatedEntry;
 import com.marotino.translate.model.UntranslatedEntry;
 import com.marotino.translate.repository.TranslatedEntryRepository;
 import com.marotino.translate.repository.UntranslatedDictionaryRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -12,15 +13,11 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class TranslationServiceImpl implements TranslationService {
     private final TranslatedEntryRepository translatedEntryRepository;
     private final UntranslatedDictionaryRepository untranslatedDictionaryRepository;
-
-    public TranslationServiceImpl(TranslatedEntryRepository translatedEntryRepository, UntranslatedDictionaryRepository untranslatedDictionaryRepository) {
-        this.translatedEntryRepository = translatedEntryRepository;
-        this.untranslatedDictionaryRepository = untranslatedDictionaryRepository;
-    }
-
+    
     @Override
     public TranslatedEntry addTranslatedWord(TranslatedEntry word) {
         untranslatedDictionaryRepository.removeByValue(word.getEnglishWord());
